@@ -9,6 +9,7 @@ export const SavingInfo = (props: SavingInfoProps) => {
     <div className="info">
       <p>saving: {saving} </p>
       <button onClick={addSaving}>Add Saving</button>
+      <p>{Math.random()}</p>
     </div>
   )
 }

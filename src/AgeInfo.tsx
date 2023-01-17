@@ -9,6 +9,7 @@ export const AgeInfo = (props: AgeInfoProps) => {
     <div className="info">
       <p>age: {age}</p>
       <button onClick={addAge}>Happy Birthday!</button>
+      <p>{Math.random()}</p>
     </div>
   )
 }
