@@ -1,17 +1,17 @@
 import { AgeInfo } from "./AgeInfo"
 import "./App.css"
-import { MyContextProvider } from "./MyContextProvider"
+import { MyContainer } from "./MyContextProvider"
 import { SavingInfo } from "./SavingInfo"
 
 function App() {
   return (
-    <MyContextProvider>
+    <MyContainer.Provider>
       <div className="App">
         <h1>Dashboard</h1>
         <AgeInfo />
         <SavingInfo />
       </div>
-    </MyContextProvider>
+    </MyContainer.Provider>
   )
 }
 

@@ -1,31 +1,8 @@
-import { createContext, useState } from "react"
+import { useState } from "react"
+import { createContainer } from "react-tracked"
 
-type TInitialValue = {
-  age: number
-  addAge: () => void
-
-  saving: number
-  addSaving: () => void
+const useValue = () => {
+  return useState({ age: 18, saving: 3000 })
 }
 
-export const MyContext = createContext({} as TInitialValue)
-
-type MyContextProviderProps = {
-  children: React.ReactNode
-}
-
-export const MyContextProvider = (props: MyContextProviderProps) => {
-  const [age, setAge] = useState(18)
-  const addAge = () => {
-    setAge((prevAge) => prevAge + 1)
-  }
-  const [saving, setSaving] = useState(3000)
-  const addSaving = () => {
-    setSaving((prevSaving) => prevSaving + 1000)
-  }
-  return (
-    <MyContext.Provider value={{ age, addAge, saving, addSaving }}>
-      {props.children}
-    </MyContext.Provider>
-  )
-}
+export const MyContainer = createContainer(useValue)

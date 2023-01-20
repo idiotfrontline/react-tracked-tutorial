@@ -1,13 +1,20 @@
-import { useContext } from "react"
-import { MyContext } from "./MyContextProvider"
+import { MyContainer } from "./MyContextProvider"
 
 type SavingInfoProps = {}
 
 export const SavingInfo = (props: SavingInfoProps) => {
-  const { saving, addSaving } = useContext(MyContext)
+  const [state, setState] = MyContainer.useTracked()
+
+  const addSaving = () => {
+    setState((prev) => ({
+      ...prev,
+      saving: prev.saving + 1000,
+    }))
+  }
+
   return (
     <div className="info">
-      <p>saving: {saving} </p>
+      <p>saving: {state.saving} </p>
       <button onClick={addSaving}>Add Saving</button>
       <p>{Math.random()}</p>
     </div>
